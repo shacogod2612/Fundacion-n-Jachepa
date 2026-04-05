@@ -225,6 +225,21 @@ section h2::after {
 
 #proyectos div div:hover {
     transform: translateY(-5px);
+    background-color: #211d79ef;
+}
+
+.card h3 {
+    color: #2c3e50;
+}
+.card:hover h3 {
+    color: #ffffff  
+}
+
+.card p {
+    color: #333333;
+}
+.card:hover p {
+    color: #ffffff;
 }
 
 #proyectos img {
@@ -235,6 +250,22 @@ section h2::after {
 
 #proyectos h3, #proyectos p {
     padding: 10px;
+}
+
+.btn-detalles {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3F39A3; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-detalles:hover {
+    background-color: #1a1852; 
 }
 
 /* GALERÍA */
@@ -285,62 +316,7 @@ section h2::after {
 
 /* BLOG */
 
-#blog {
-    background: #e9f2ff;
-    text-align: center;
-    border-radius: 10px;
-}
 
-.lista-donaciones {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.lista-donaciones li {
-    font-size: 0.95rem;
-    color: #444;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.lista-donaciones i {
-    color: #E1306C; 
-    font-size: 0.8rem;
-}
-
-.nequi-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #f0f0f0;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border-left: 5px solid #3F39A3;
-    font-size: 0.9rem;
-}
-
-.nequi-info strong {
-    color: #3F39A3;
-}
-
-
-.noticia-imagen {
-    flex: 1; 
-    position: relative;
-    height: 100%;
-    overflow: hidden; 
-    border-radius: 15px 0 0 15px; 
-}
-
-.noticia-imagen img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    object-position: center; 
-}
 
     /* CONTACTO */
 
@@ -453,7 +429,8 @@ section h2::after {
     cursor: pointer;
 }
 
-/* Contenedor Principal de la Sección */
+/******* PAGINA DE NIÑOS Y EDUCACION *******/
+
 .project-detail-section {
     padding: 60px 20px;
     background-color: #ffffff;
@@ -472,7 +449,7 @@ section h2::after {
 /* Cabecera */
 .project-header {
     margin-bottom: 30px;
-    border-bottom: 3px solid #1a3a82;
+    border-bottom: 3px solid #3F39A3;
     padding-bottom: 15px;
 }
 
@@ -483,7 +460,7 @@ section h2::after {
 }
 
 .project-badge {
-    background: #1a3a82;
+    background: #3F39A3;
     color: white;
     display: inline-block;
     padding: 4px 12px;
@@ -493,10 +470,17 @@ section h2::after {
 }
 
 .project-main-title {
-    font-size: 2rem;
+    font-size: 5rem;
     margin: 0;
-    color: #111;
+    color: #ffffff;
     line-height: 1.2;
+    background-color: #3F39A3;
+}
+
+.project-sub-title {
+    font-size: 2rem;
+    color: #3F39A3;
+    line-height: 1.1;
 }
 
 /* Grid Layout */
@@ -572,7 +556,7 @@ section h2::after {
 
 /* Texto e Info */
 .info-block h3 {
-    color: #1a3a82;
+    color: #3F39A3;
     font-size: 1.1rem;
     margin-bottom: 10px;
 }
@@ -591,7 +575,7 @@ section h2::after {
 
 .btn-more-info {
     display: inline-block;
-    background: #1a3a82;
+    background: #3F39A3;
     color: white;
     padding: 12px 25px;
     text-decoration: none;
