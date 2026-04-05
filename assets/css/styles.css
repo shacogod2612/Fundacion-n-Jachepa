@@ -84,7 +84,7 @@ nav a:hover {
 
 #hero {
     height: 85vh;
-    background: linear-gradient(135deg, rgba(22, 20, 65, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%), url('../../img/hero3.png.jpeg');
+    background: linear-gradient(135deg, rgba(22, 20, 65, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%), url('../../img/hero3.jpeg');
     background-position: top center;
     background-size: cover;
     background-attachment: fixed;
