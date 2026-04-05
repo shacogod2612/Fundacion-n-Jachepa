@@ -587,6 +587,7 @@ section h2::after {
     background: #b3001b;
 }
 
+
 /* FOOTER */
 
 footer {
@@ -860,7 +861,51 @@ footer {
         margin-top: 10px;
         font-size: 0.85rem;
     }
+
+    /** ventana tipo periodico **/
+ 
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+   
+    .project-main-title {
+        font-size: 2.5rem; 
+        padding: 10px;
+    }
+
+    .project-sub-title {
+        font-size: 1.5rem;
+    }
+
+   
+    .project-inner-container {
+        padding: 15px;
+        border: none; 
+        box-shadow: none;
+    }
+
+    .secondary-images {
+        gap: 10px;
+    }
+
+    
+    .project-stats {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+   
+    .btn-more-info {
+        display: block;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
+
 
 
 @media (max-width: 460px) {
