@@ -207,18 +207,35 @@
       const DATASET = 'production';
 
       // Consulta GROQ a Sanity
-      const query = encodeURIComponent(`*[_type == "fundacionInfo"][0]{
+      const query = `*[_type == "fundacionInfo"][0]{
+        header{
+            nombreSitio,
+            "logoUrl": logo.asset->url,
+            menuEnlaces
+        },
+        hero{
+            tituloPrincipal,
+            subtitulo,
+            textoBoton,
+            enlaceBoton,
+            "imagenFondoUrl": imagenFondo.asset->url
+        },
         mision,
         vision,
         whatsapp,
         email,
         proyectos[]{
-          titulo,
-          enfoque,
-          enlace,
-          "imagenUrl": imagen.asset->url
+            titulo,
+            enfoque,
+            enlace,
+            "imagenUrl": imagen.asset->url
+        },
+        footer{
+            textoDerechos,
+            direccion,
+            redesSociales
         }
-      }`);
+        }`;
 
       const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
 
