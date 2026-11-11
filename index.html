@@ -202,6 +202,80 @@
     
 </footer>
     <script src="assets/script.js"> </script>
-    
+   <script>
+      const PROJECT_ID = '6yzw2ht7';
+      const DATASET = 'production';
+
+      // Consulta GROQ a Sanity
+      const query = encodeURIComponent(`*[_type == "fundacionInfo"][0]{
+        mision,
+        vision,
+        whatsapp,
+        email,
+        proyectos[]{
+          titulo,
+          enfoque,
+          enlace,
+          "imagenUrl": imagen.asset->url
+        }
+      }`);
+
+      const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          console.log("Datos recibidos de Sanity:", data); // Para inspeccionar en la consola
+          const info = data.result;
+          if (!info) return;
+
+          // 1. Misión y Visión
+          const pMision = document.querySelector('#nosotros .borde:nth-child(1) p');
+          const pVision = document.querySelector('#nosotros .borde:nth-child(2) p');
+          if (info.mision && pMision) pMision.innerText = info.mision;
+          if (info.vision && pVision) pVision.innerText = info.vision;
+
+          // 2. Teléfono WhatsApp y Email
+          if (info.whatsapp) {
+            const aWa = document.querySelector('a[href*="wa.me"]');
+            if (aWa) {
+              aWa.href = `https://wa.me/${info.whatsapp}`;
+              const pWa = aWa.querySelector('p');
+              if (pWa) pWa.innerText = `+${info.whatsapp}`;
+            }
+          }
+
+          if (info.email) {
+            const aEmail = document.querySelector('a[href^="mailto:"]');
+            if (aEmail) {
+              aEmail.href = `mailto:${info.email}`;
+              const pEmail = aEmail.querySelector('p');
+              if (pEmail) pEmail.innerText = info.email;
+            }
+          }
+
+          // 3. Proyectos
+          if (info.proyectos && info.proyectos.length > 0) {
+            // Se busca la caja de proyectos por el contenedor flex/grid que envuelve las cards
+            const contenedorProyectos = document.querySelector('#proyectos > div');
+            if (contenedorProyectos) {
+              contenedorProyectos.innerHTML = ''; // Limpia el HTML estático anterior
+
+              info.proyectos.forEach(proyecto => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                  <img src="${proyecto.imagenUrl || 'img/niñezYeducacion.jpeg'}" alt="${proyecto.titulo || 'Proyecto'}">
+                  <h3>${proyecto.titulo || ''}</h3>
+                  <p><strong>Enfoque:</strong> ${proyecto.enfoque || ''}</p>
+                  <a href="${proyecto.enlace || '#'}" class="btn-detalles">Ver detalles</a>
+                `;
+                contenedorProyectos.appendChild(card);
+              });
+            }
+          }
+        })
+        .catch(err => console.error('Error cargando Sanity:', err));
+    </script>
 </body>
 </html>
